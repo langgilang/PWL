@@ -1,0 +1,5 @@
+Routing adalah sebuah pintu masuk ke dalam aplikasi Laravel, 
+dimana disini kita mendefinisikan URI dan aksi dari URI tersebut.
+
+Controller adalah penghubung antara Model dan View, 
+memanggil Model untuk melakukan operasi yang diminta dan mengirimkan data ke view

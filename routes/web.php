@@ -11,19 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return 'Selamat Datang';
-});
-
-Route::get('/about', function () {
-    return 'NIM : 1931710154, NAMA : GILANG SURYA PRATAMA';
-});
-
-Route::get('/article/1', function () {
-    return 'Halaman artikel dengan id 1';
-});
-
-Route::get('/article/2', function () {
-    return 'Halaman artikel dengan id 2';
-});
+Route::get('/', 'PageController@index');
+Route::get('/about', 'PageController@about');
+Route::get('/article/1', 'PageController@article_1');
+Route::get('/article/2', 'PageController@article_2');
 

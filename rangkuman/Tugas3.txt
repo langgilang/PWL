@@ -1,0 +1,9 @@
+View adalah bagian dari MVC yang bertanggung jawab untuk memberikan tampilan ke pengguna.
+Kode-kode HTML, CSS, dan Javascript diletakkan pada View. View disimpan di direktori
+resources/views.
+Laravel membuat view lebih powerful dengan memanfaatkan templating engine yang disebut
+Blade. Blade berguna untuk mempermudah dalam menulis kode tampilan dan memberikan fitur
+tambahan untuk memanipulasi data di view yang dilempar dari controller. Blade juga
+memungkinkan penggunaan plain PHP pada kode View. Karena Laravel menggunakan
+templating engine bawaan Blade, maka setiap file View diakhiri dengan .blade.php. Misal:
+index.blade.php, home.blade.php, product.blade.php. 

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@home');
 Route::get('/about', 'AboutController@about');
 Route::get('/article/1', 'ArticleController@article_1');
 Route::get('/article/2', 'ArticleController@article_2');

@@ -1,0 +1,27 @@
+Model adalah bagian dari MVC yang bertanggung jawab untuk menangani basis data (database).
+Model bertugas untuk query ke database, insert data baru, update, atau hapus record di
+database.
+
+Migration berfungsi sebagai version control database. Dengan migration kita bisa membuat,
+mengubah atau menghapus struktur tabel dan field database tanpa harus membuka aplikasi GUI
+database management. Migration adalah suatu cara untuk membuat skema database secara
+langsung dengan mengeksekusi kode program, bukan melalui eksekusi SQL. Dengan migration,
+pembuatan skema database dilakukan menggunakan kode program PHP untuk menggantikan
+kode SQL
+
+Dalam konteks pengembangan aplikasi, seeding adalah memberikan data awal ke database.
+Hal ini biasanya dilakukan saat pengembangan terutama jika kita ingin menguji apakah fitur
+tertentu telah berjalan sesuai ekspektasi. Kita bisa saja memberikan data awal secara manual
+dengan melakukan insert melalui DBMS, akan tetapi kurang praktis jika butuh menguji banyak
+data. Oleh karena itu kita dapat memanfaatkan fitur Seeding di Laravel.
+
+Untuk melakukan optimasi terhadap aplikasi yang dikembangkan, dapat ditambahkan proses
+caching. Dengan adanya caching beban pengambilan data dari database atau sumber lain dapat
+dikurangi. Laravel mendukung bermacam driver cache yang dapat digunakan. Cache yang
+populer seperti memcached dan redis dapat diintegrasikan dengan mudah dalam Laravel
+
+Dalam dokumentasi caching Laravel, terdapat banyak teknis metode melakukan caching. Tetapi
+yang sering digunakan adalah metode remember dan rememberForever. Perbedaan di antara
+kedua metode ini pada waktu ttl yang dibutuhkan. Untuk rememberForever akan dilakukan
+cache selama cache tidak dihapus, sedangkan remember tergantung pada nilai ttl detik yang
+dimasukkan.

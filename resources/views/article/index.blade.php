@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title','About')
+@section('title','Article')
 
 @section('header')
 	<center>
@@ -10,31 +10,31 @@
 
 @section('halaman','Halaman')
 
-@section('keterangan','About')
+@section('keterangan','Article')
 
 @section('konten')
 	<div class="card mb-4">
 		<div class="card-body">
-		<div class="card mb-4">
 			<table class="table">
 				<thead class="thead-dark">
 					<th scope="col">#</th>
-					<th scope="col">NIM</th>
-					<th scope="col">NAMA</th>
-					<th scope="col">AKSI</th>
+					<th scope="col">Title</th>
+					<th scope="col">Content</th>
+					<th scope="col">Action</th>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td scope="row">1931710154</td>
-						<td scope="row">GILANG SURYA PRATAMA</td>
-						<td>
-							<a href="#" class="btn btn-info">detil</a>
-						</td>
-					</tr>
+					@foreach ( $article as $art)
+						<tr>
+							<th scope="row">{{ $loop->iteration }}</th>
+							<td scope="row">{{ $art->title }}</td>
+							<td scope="row">{{ $art->content }}</td>
+							<td>
+								<a href="/article/{{ $art->id }}" class="btn btn-info">detil</a>
+							</td>
+						</tr>
+					@endforeach
 				</tbody>
 			</table>
-		</div>
 		</div>
 	</div>
 @endsection

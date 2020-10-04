@@ -14,10 +14,12 @@
 Route::get('/', 'HomeController@index');
 
 // ABOUT
-Route::get('/about', 'AboutController@about');
+Route::get('/about', 'AboutController@index');
+Route::get('/about/{id}', 'AboutController@show');
 
 // ARTICLE
 Route::get('/article', 'ArticleController@index');
 Route::get('/article/{id}', 'ArticleController@show');
+
 
 

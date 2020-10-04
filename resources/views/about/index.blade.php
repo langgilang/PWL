@@ -18,20 +18,22 @@
 		<div class="card mb-4">
 			<table class="table">
 				<thead class="thead-dark">
-					<th scope="col">#</th>
+				<th scope="col">#</th>
 					<th scope="col">NIM</th>
 					<th scope="col">NAMA</th>
 					<th scope="col">AKSI</th>
 				</thead>
 				<tbody>
+				@foreach( $abouts as $b )
 					<tr>
-						<th scope="row">1</th>
-						<td scope="row">1931710154</td>
-						<td scope="row">GILANG SURYA PRATAMA</td>
+						<th scope="row">{{ $loop->iteration }}</th>
+						<td>{{ $b->nim }}</td>
+						<td>{{ $b->nama }}</td>
 						<td>
-							<a href="#" class="btn btn-info">detil</a>
+							<a href="/about/{{ $b->id }}" class="btn btn-info">detil</a>
 						</td>
 					</tr>
+				@endforeach
 				</tbody>
 			</table>
 		</div>

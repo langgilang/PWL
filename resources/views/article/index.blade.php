@@ -26,8 +26,8 @@
 					@foreach ( $article as $art)
 						<tr>
 							<th scope="row">{{ $loop->iteration }}</th>
-							<td scope="row">{{ $art->title }}</td>
-							<td scope="row">{{ $art->content }}</td>
+							<td>{{ $art->title }}</td>
+							<td>{{ $art->content }}</td>
 							<td>
 								<a href="/article/{{ $art->id }}" class="btn btn-info">detil</a>
 							</td>

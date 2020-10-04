@@ -13,11 +13,12 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('content');
-            $table->string('featured_image');
+            $table->string('nim');
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('image');
             $table->timestamps();
         });
     }

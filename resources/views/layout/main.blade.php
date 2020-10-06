@@ -52,19 +52,14 @@
 
 	<!-- Page Content -->
 	<div class="container">
-
 		<div class="row">
-
 			<!-- Blog Entries Column -->
 			<div class="col-md-8">
-
 				<h1 class="my-4">@yield('halaman')
 					<small>@yield('keterangan')</small>
 				</h1>
-
 				<!-- Blog Post -->
                 @yield('konten')
-
 				<!-- Pagination -->
 				<ul class="pagination justify-content-center mb-4">
 					<li class="page-item">
@@ -74,20 +69,16 @@
 						<a class="page-link" href="#">Newer &rarr;</a>
 					</li>
 				</ul>
-
 			</div>
 
 			<!-- Sidebar Widgets Column -->
 			<div class="col-md-4">
-
 				<!-- Categories Widget -->
 				<div class="card my-4">
 					<h5 class="card-header">Sidebar</h5>
 					@yield('sidebar')
 				</div>
-
 			</div>
-
 		</div>
 		<!-- /.row -->
 

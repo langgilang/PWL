@@ -23,7 +23,6 @@ class ArticleController extends Controller
         $article = Cache::rememberForever('articles', function () {
             return DB::table('articles')->get();
             });
-
         return view('article.index', compact('article'));
     }
 

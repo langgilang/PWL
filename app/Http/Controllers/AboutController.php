@@ -20,7 +20,6 @@ class AboutController extends Controller
         $abouts = Cache::remember("abouts:id:$id", 10, function () use ($id) {
             return About::find($id);
         });
-        dump($abouts);
         return view('about.show', ['id'=>$id])->with(compact('abouts'));
     }
 }

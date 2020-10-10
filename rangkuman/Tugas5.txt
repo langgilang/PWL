@@ -1,0 +1,10 @@
+Autentikasi (authentication) berasal dari kata authentic, yang berarti asli, original. Secara istilah
+maksudnya adalah proses untuk memastikan keaslian atau kebenaran. Sehingga user
+authentication dapat diartikan sebagai proses untuk memastikan keaslian atau kebenaran
+pengguna yang mengakses aplikasi. Biasanya proses ini dijumpai dalam bentuk pengecekan
+menggunakan username dan password. Tujuannya yaitu memastikan keaslian atau kebenaran
+pengguna yang mengakses aplikasi.
+
+Dengan laravel, kita cukup jalankan beberapa command dan aplikasi Laravel siap untuk
+melakukan user authentication, lengkap dengan registrasi, login, forgot password.
+

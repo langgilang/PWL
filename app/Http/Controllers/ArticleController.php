@@ -24,6 +24,7 @@ class ArticleController extends Controller
             return DB::table('articles')->get();
             });
         return view('article.index', compact('article'));
+
     }
 
     /**
@@ -31,9 +32,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        Article::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'featured_image' => $request->image
+        ]);
+        return redirect('/article');
     }
 
     /**
@@ -69,7 +75,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        return view('article.editarticle',['article'=>$article]);
     }
 
     /**
@@ -81,7 +88,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->featured_image = $request->image;
+        $article->save();
+        return redirect('/article');
     }
 
     /**
@@ -93,5 +105,17 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function add()
+    {
+        return view('article.addarticle');
+    }
+
+    public function delete($id)
+    {
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('/article');
     }
 }

@@ -1,0 +1,21 @@
+Object Relational Mapping
+ORM memiliki kepanjangan Object Relational Mapping, dengan ORM kita bisa melakukan
+operasi CRUD ke database tanpa harus menulis SQL Command. ORM inilah yang bertugas
+untuk menulis SQL Command. Laravel menggunakan ORM yang bernama Eloquent. Selain
+dapat menyederhanakan SQL command, kelebihan ORM antara lain:
+1. Mudah ganti Database
+Dengan Eloquent ORM apabila kita ingin mengganti database dari MySQL ke MSSQL atau
+Oracle atau yang lain kita tidak perlu khawatir perbedaan sintaks yang bisa membuat error.
+Karena kita tidak perlu mengubah kode yang kita tulis dengan Eloquent ORM. Eloquent ORM
+tersebut yang akan men-generate SQL Command sesuai dengan database baru yang kita
+pakai
+2. Mudah mengelola relationship antar tabel
+Dengan Eloquent ORM membuat, mendapatkan dan memanipulasi relationship antar tabel
+menjadi lebih mudah. Karena tanpa ORM kita memerlukan SQL Command yang cukup
+panjang dan rawan kesalahan.
+3. Memudahkan pemula dalam SQL Command
+Untuk pemula dalam SQL Command, Eloquent ORM akan sangat membantu karena tidak
+perlu menghafal SQL Command yang rumit untuk bisa membuat fitur canggih.
+Sebelum dapat menampilkan (read), menambahkan (create), mengubah (update), dan
+menghapus (delete) data, buat terlebih dahulu tabel yang akan kita kelola pada database. Kitadapat menggunakan fitur migration untuk pembuatan tabel serta seeder untuk menambahkan
+data awal.

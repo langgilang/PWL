@@ -1,52 +1,70 @@
-@extends('layout.main')
+@extends('layout.master')
 
-@section('title','About')
+@section('title_content','About')
 
-@section('header')
-	<center>
-		@include('layout.header')
-	</center>
-@endsection
+@section('content')
+<div class="col-lg-12">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <h5 class="m-0">Data User</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="/about/add" class="btn btn-success">Tambah Data</a>
+                </div>
+            </div><br>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NIM</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($abouts as $a)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $a->nim }}</td>
+                        <td>{{ $a->nama }}</td>
+                        <td class="project-actions text-left">
+                            <a href="/about/{{ $a->id }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-folder">
+                                    Detil
+                                </i>
+                            </a>
+                            <a href="/about/edit/{{ $a->id }}" class="btn btn-info btn-sm">
+                                <i class="fas fa-pencil-alt">
+                                    Edit
+                                </i>
+                            </a>
+                            <a href="/about/delete/{{ $a->id }}" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash">
+                                    Delete
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>NIM</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>&nbsp;
+            <div class="dataTables_info" role="status" aria-live="polite">
+                Showing {{ $abouts->currentPage() }} to {{ $abouts->total() }} of {{ $abouts->perPage() }} entries               
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
 
-@section('halaman','Halaman')
-
-@section('keterangan','About')
-
-@section('konten')
-	<div class="card mb-4">
-		<div class="card-body">
-		<div class="card mb-4">
-			<table class="table">
-				<thead class="thead-dark">
-				<th scope="col">#</th>
-					<th scope="col">NIM</th>
-					<th scope="col">NAMA</th>
-					<th scope="col">AKSI</th>
-				</thead>
-				<tbody>
-				@foreach( $abouts as $b )
-					<tr>
-						<th scope="row">{{ $loop->iteration }}</th>
-						<td>{{ $b->nim }}</td>
-						<td>{{ $b->nama }}</td>
-						<td>
-							<a href="/about/{{ $b->id }}" class="btn btn-info">detil</a>
-						</td>
-					</tr>
-				@endforeach
-				</tbody>
-			</table>
-		</div>
-		</div>
-	</div>
-@endsection
-
-@section('sidebar')
-	@include('layout.sidebar')
-@endsection
-
-@section('footer')
-	<center>
-		@include('layout.footer')
-	</center>
 @endsection

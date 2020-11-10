@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Cache;
 
 class AboutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $abouts = DB::table('abouts')->paginate(10);

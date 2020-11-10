@@ -1,0 +1,6 @@
+Manajemen Data
+Manajemen data berkaitan dengan pengelolaan data pada sebuah aplikasi. Pengelolaan ini dapat
+berupa halaman khusus yang digunakan untuk menambah, mengedit, dan menghapus data dari
+database. Pengelolaan data berhubungan dengan operasi CRUD di dalam aplikasi.
+Praktikum ini akan membahas manajemen data khususnya manajemen data user atau
+pengguna, pembagian peran atau role pengguna, serta pembagian otorisasi pengguna.

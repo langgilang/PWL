@@ -11,7 +11,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form form action="/article/create" method="post">
+        <form form action="/article/create" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Featured Image</label>
-                    <input type="text" class="form-control" required="required" name="image">
+                    <input type="file" class="form-control" required="required" name="image">
                 </div>
             </div>
             <!-- /.card-body -->

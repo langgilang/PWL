@@ -35,10 +35,15 @@ class AboutController extends Controller
 
     public function create(Request $request)
     {
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('images','public');
+        }
+
         About::create([
             'nim' => $request->nim,
             'nama' => $request->nama,
-            'alamat' => $request->alamat
+            'alamat' => $request->alamat,
+            'image' => $request->image
         ]);
         return redirect('/about');
     }
@@ -55,7 +60,13 @@ class AboutController extends Controller
         $about->nim = $request->nim;
         $about->nama = $request->nama;
         $about->alamat = $request->alamat;
-        $about->save();
+        if($article->featured_image &&file_exists(storage_path('app/public/' . $article->featured_image)))
+        {
+            \Storage::delete('public/'.$article->featured_image);
+        }
+        $image_name = $request->file('image')->store('images', 'public');
+        $article->featured_image = $image_name;
+        $article->save();
         return redirect('/about');
     }
 

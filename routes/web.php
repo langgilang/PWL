@@ -29,6 +29,7 @@ Route::post('/about/create','AboutController@create');
 // ARTICLE
 Route::get('/article', 'ArticleController@index');
 Route::get('/article/add','ArticleController@add');
+Route::get('/article/cetak_pdf', 'ArticleController@cetak_pdf');
 Route::get('/article/{id}', 'ArticleController@show');
 Route::get('/article/edit/{id}','ArticleController@edit');
 Route::get('/article/delete/{id}','ArticleController@delete');

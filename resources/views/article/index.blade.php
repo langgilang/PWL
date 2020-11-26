@@ -12,6 +12,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <a href="article/add" class="btn btn-success">Tambah Data</a>
+                    <a href="/article/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
                 </div>
             </div><br>
             <table class="table table-bordered table-hover">

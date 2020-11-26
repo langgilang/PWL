@@ -11,7 +11,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="/article/update/{{$article->id}}" method="post">
+        <form action="/article/update/{{$article->id}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="card-body">
                 <input type="hidden" name="id" value="{{$article->id}}">
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Featured Image</label>
-                    <input type="text" class="form-control" required="required" name="image"
+                    <input type="file" class="form-control" required="required" name="image"
                     value="{{$article->featured_image}}">
                 </div>
             </div>

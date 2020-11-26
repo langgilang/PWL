@@ -26,6 +26,10 @@
                     <label for="alamat">Alamat</label>
                     <input type="text" class="form-control" required="required" name="alamat">
                 </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" required="required" name="image">
+                </div>
             </div>
             <!-- /.card-body -->
 

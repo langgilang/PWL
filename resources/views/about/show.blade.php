@@ -9,6 +9,7 @@
 			<h5 class="m-0">Article</h5>
 		</div>
 		<div class="card-body">
+			<img width="150px" src="{{asset('storage/app/public/images/'.$abouts->image)}}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $abouts->nama }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $abouts->nim }}</h6>

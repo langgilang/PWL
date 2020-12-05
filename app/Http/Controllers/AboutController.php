@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,16 +17,16 @@ class AboutController extends Controller
 
     public function index()
     {
-        $abouts = DB::table('abouts')->paginate(10);
-        return view('about.index', ['abouts' => $abouts]);
+        $about = DB::table('abouts')->paginate(10);
+        return view('about.index', ['about' => $about]);
     }
 
     public function show($id)
     {
-        $abouts = Cache::remember("abouts:id:$id", 10, function () use ($id) {
+        $about = Cache::remember("abouts:id:$id", 10, function () use ($id) {
             return About::find($id);
         });
-        return view('about.show', ['id'=>$id])->with(compact('abouts'));
+        return view('about.show', ['id'=>$id])->with(compact('about'));
     }
 
     public function add()
@@ -43,7 +44,7 @@ class AboutController extends Controller
             'nim' => $request->nim,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
-            'image' => $request->image
+            'featured_image' => $image_name,
         ]);
         return redirect('/about');
     }
@@ -56,17 +57,17 @@ class AboutController extends Controller
 
     public function update(Request $request, $id)
     {
-        $about = about::find($id);
+        $about = About::find($id);
         $about->nim = $request->nim;
         $about->nama = $request->nama;
         $about->alamat = $request->alamat;
-        if($article->featured_image &&file_exists(storage_path('app/public/' . $article->featured_image)))
+        if($about->featured_image &&file_exists(storage_path('app/public/' . $about->featured_image)))
         {
-            \Storage::delete('public/'.$article->featured_image);
+            \Storage::delete('public/'.$about->featured_image);
         }
         $image_name = $request->file('image')->store('images', 'public');
-        $article->featured_image = $image_name;
-        $article->save();
+        $about->featured_image = $image_name;
+        $about->save();
         return redirect('/about');
     }
 
@@ -75,5 +76,11 @@ class AboutController extends Controller
         $about = About::find($id);
         $about->delete();
         return redirect('/about');
+    }
+
+    public function cetak_pdf(){
+        $about = About::all();
+        $pdf = PDF::loadview('about.user_pdf',['about'=>$about]);
+        return $pdf->stream();
     }
 }

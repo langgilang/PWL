@@ -11,7 +11,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="/about/update/{{$about->id}}" method="post">
+        <form action="/about/update/{{$about->id}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="card-body">
                 <input type="hidden" name="id" value="{{$about->id}}">
@@ -38,7 +38,7 @@
             </div>
             <!-- /.card-body -->
 
-            <div class="card-footer">
+            <div style="padding-left: 20px">
                 <button type="submit" name="edit" class="btn btn-success">Submit</button>
             </div>
         </form>

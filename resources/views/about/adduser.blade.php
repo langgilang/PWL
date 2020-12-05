@@ -11,7 +11,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form form action="/about/create" method="post">
+        <form form action="/about/create" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
@@ -27,13 +27,13 @@
                     <input type="text" class="form-control" required="required" name="alamat">
                 </div>
                 <div class="form-group">
-                    <label for="image">Image</label>
+                    <label for="image">Featured Image</label>
                     <input type="file" class="form-control" required="required" name="image">
                 </div>
             </div>
             <!-- /.card-body -->
 
-            <div class="card-footer">
+            <div style="padding-left: 20px">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </form>

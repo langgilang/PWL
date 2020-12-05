@@ -29,7 +29,7 @@
             </div>
             <!-- /.card-body -->
 
-            <div class="card-footer">
+            <div style="padding-left: 20px">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </form>

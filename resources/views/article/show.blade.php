@@ -10,9 +10,9 @@
         </div>
         <div class="card-body">
             <div class="card mb-4">
-                <img width="150px" src="{{asset('storage/app/public/images/'.$article->featured_image)}}">
+                <img width="668px" src="{{ asset('storage/'.$article->featured_image)}}">
                 <div class="card-body">
-                    <h2 class="card-title">{{ $article->title }}</h2>
+                    <h1 class="card-title">{{ $article->title }}</h1>
                     <p class="card-text">
                         {{ $article->content }}
                     </p>

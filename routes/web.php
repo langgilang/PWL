@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index');
 // ABOUT
 Route::get('/about', 'AboutController@index');
 Route::get('/about/add','AboutController@add');
+Route::get('/about/cetak_pdf', 'AboutController@cetak_pdf');
 Route::get('/about/{id}', 'AboutController@show');
 Route::get('/about/edit/{id}', 'AboutController@edit');
 Route::get('/about/delete/{id}','AboutController@delete');

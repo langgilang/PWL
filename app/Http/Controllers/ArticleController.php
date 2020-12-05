@@ -7,6 +7,7 @@ use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
@@ -18,17 +19,17 @@ class ArticleController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware(function($request, $next){
+        //     if(Gate::allows('user-diplay')) return $next($request);
+        //     abort(403, 'Anda tidak memiliki cukup hak akses');
+        // });
     }
 
     public function index()
     {
         $article = Cache::remember('articles', 5, function () {
-            return DB::table('articles')->get();
+            return DB::table('articles')->paginate(10);
         });
-
-        $article = Cache::rememberForever('articles', function () {
-            return DB::table('articles')->get();
-            });
         return view('article.index', compact('article'));
 
     }
@@ -47,7 +48,7 @@ class ArticleController extends Controller
         Article::create([
             'title' => $request->title,
             'content' => $request->content,
-            'featured_image' => $request->image
+            'featured_image' => $image_name,
         ]);
         return redirect('/article');
     }
@@ -136,7 +137,7 @@ class ArticleController extends Controller
 
     public function cetak_pdf(){
         $article = Article::all();
-        $pdf = PDF::loadview('articles_pdf',['article'=>$article]);
+        $pdf = PDF::loadview('article.articles_pdf',['article'=>$article]);
         return $pdf->stream();
     }
 }
